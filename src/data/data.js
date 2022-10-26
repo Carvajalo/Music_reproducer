@@ -1,28 +1,32 @@
+import sample1 from "../assets/samples/Andrea.mp3";
+import sample2 from "../assets/samples/As It Was.mp3";
+import sample3 from "../assets/samples/Joji  TEST DRIVE.mp3";
+
 export let samples_testing = [
   {
     id: 1,
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    title: "SoundHelix Song 1",
-    artist: "SoundHelix",
-    album: "SoundHelix",
+    audio: sample1,
+    title: "Andrea",
+    artist: "Bad bunny",
+    album: "Un Verano Sin Ti",
     duration: ["3", "00"],
   },
 
   {
     id: 2,
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    title: "SoundHelix Song 2",
-    artist: "SoundHelix",
-    album: "SoundHelix",
+    audio: sample2,
+    title: "As It Was",
+    artist: "Harry Styles",
+    album: "Harry's House",
     duration: ["3", "00"],
   },
 
   {
     id: 3,
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    title: "SoundHelix Song 3",
-    artist: "SoundHelix",
-    album: "SoundHelix",
+    audio: sample3,
+    title: "Test Drive",
+    artist: "Joji",
+    album: "Ballads 1",
     duration: ["3", "00"],
   },
 
