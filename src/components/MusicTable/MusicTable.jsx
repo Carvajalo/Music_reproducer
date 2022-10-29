@@ -45,7 +45,7 @@ const MusicTable = () => {
   return (
 
       <div className="w-full shadow-md pb-2 rounded-b-2xl">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-400">
           <MusicHeader></MusicHeader>
           <tbody>
             {setDiplay.map((sample, index) => (

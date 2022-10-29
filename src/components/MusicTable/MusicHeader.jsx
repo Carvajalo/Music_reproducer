@@ -3,7 +3,7 @@ import React from "react";
 const MusicHeader = () => {
   return (
     <>
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
         <tr>
           <th className="p-4">
             <span className="sr-only">Play button</span>
