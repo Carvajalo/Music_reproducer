@@ -1,16 +1,14 @@
 import React from "react";
 
 export function PreviusButton({ name, page, setPage }) {
-  const prevStyle =
-    "py-2 px-3 ml-0 leading-tight text-gray-500 bg-white  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white rounded-l-lg";
-  const nextStyle =
-    "py-2 px-3 ml-0 leading-tight text-gray-500 bg-white  border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white rounded-r-lg";
+  const style =
+    "py-2 px-3 leading-tight border bg-gray-800 border-gray-700 hover:bg-gray-700 w-20  focus:ring-4 focus:outline-none focus:ring-gray-900  text-sm  text-center border-b font-medium whitespace-nowrap text-white ";
 
   function pageHandler() {
     if (name === "Previous") {
       return setPage(page - 1);
-    } else {
-      console.log("nextHandler");
+    }
+    if (name === "Next") {
       return setPage(page + 1);
     }
   }
@@ -18,8 +16,13 @@ export function PreviusButton({ name, page, setPage }) {
   return (
     <div
       onClick={pageHandler}
-      id="icon_arrow_left"
-      className={name === "Previous" ? prevStyle : nextStyle}
+      className={
+        name === "Previous"
+          ? style + "rounded-l-lg"
+          : name == "Next"
+          ? style + " rounded-r-lg"
+          : style
+      }
     >
       {name}
     </div>

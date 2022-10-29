@@ -1,10 +1,9 @@
-import {Home} from "./screens/Home"
-
+import { Home } from "./screens/Home";
 
 function App() {
   return (
-    <div>
-      <Home></Home>
+    <div className="flex justify-center h-screen items-center">
+        <Home></Home>
     </div>
   );
 }

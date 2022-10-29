@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { NewSample } from "../Form/NewSample";
 
 export const Header = () => {
+  const [displayForm, setDisplayForm] = useState(false);
+  function handleDisplayForm() {
+    setDisplayForm(true);
+  }
   return (
     <header>
-      <nav className="bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <div className="flex items-center ">
+      <nav className="rounded-t-xl bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+        <div >
+          <div className="flex items-center justify-center">
             <svg
               className="mr-2"
               version="1.1"
@@ -23,8 +28,9 @@ export const Header = () => {
             </span>
           </div>
 
-          <div className="ml-96">
+          <div className="flex justify-end ml-96">
             <button
+              onClick={handleDisplayForm}
               id="upload_sample"
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-lg px-5 py-1 mr-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
             >
@@ -33,6 +39,7 @@ export const Header = () => {
           </div>
         </div>
       </nav>
+      {displayForm && <NewSample displayForm={displayForm} setDisplayForm={setDisplayForm}></NewSample>}
     </header>
   );
 };

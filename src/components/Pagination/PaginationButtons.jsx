@@ -1,31 +1,36 @@
 import React, { useContext, useEffect } from "react";
+import { PaginationContext } from "../../context/PaginationContext";
 
-export const PaginationButtons = ({ page, setPage, lastPage }) => {
-  useEffect(() => {
-    console.log("actual page is: ", page);
-    console.log("lastPage: ", lastPage);
-  }, [page]);
+export const PaginationButtons = ({ pageItem, setPage }) => {
+  const { lastPage, page } = useContext(PaginationContext);
 
-  const style =
-    "py-2 px-3 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
-
-  const lastPageStyle =
-    "py-2 px-3 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white rounded-r-lg";
-  
-
-  const firstPage = "py-2 px-3 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white rounded-l-lg" 
+  let style =
+    "py-2 px-4 ml-0 leading-tight hover:text-white text-gray-400 hover:text-white";
 
   function setPageHandler() {
-    setPage(page - 1);
+    setPage(pageItem);
   }
+
+  function calculateColors(page, pageItem) {
+    if (page != pageItem) {
+      return style + " bg-gray-800 text-gray-500";
+    }
+    style += " bg-blue-600 font-medium text-white";
+    if (pageItem == 1) {
+      return style + " rounded-l-lg";
+    }
+    if (pageItem == lastPage) {
+      return style + " rounded-r-lg";
+    }
+    return style;
+  }
+
   return (
     <>
-      <div
-        onClick={setPageHandler}
-        className={style}
-      >
-        {page}
+      <div onClick={setPageHandler} className={calculateColors(page, pageItem)}>
+        {pageItem}
       </div>
+      
     </>
   );
 };

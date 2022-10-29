@@ -15,7 +15,7 @@ const MusicTable = () => {
     setIsChange,
   } = useContext(PaginationContext);
 
-  const new_button = samples.length / samplesPerPage;
+  const new_button = Math.ceil(samples.length / samplesPerPage);
 
   useEffect(() => {
     setIsChange(
@@ -36,18 +36,18 @@ const MusicTable = () => {
   const setDiplay = samples.slice(pageVisited, pageVisited + samplesPerPage);
 
   return (
-    <div className="list">
-      <div className="overflow-x-auto relative shadow-md">
+
+      <div className="w-full shadow-md pb-2 rounded-b-2xl">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <MusicHeader></MusicHeader>
-          <tbody id="tbody_list">
+          <tbody>
             {setDiplay.map((sample, index) => (
               <MusicTemplate key={index} sample={sample} />
             ))}
           </tbody>
         </table>
+        
       </div>
-    </div>
   );
 };
 

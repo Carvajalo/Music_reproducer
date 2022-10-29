@@ -1,15 +1,18 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import { samples_testing } from "../data/data";
 
 export const MusicContext = createContext();
 
 export function MusicContextProvider(props) {
-  const [samples, setSamples] = useState([]);
-  const [audioPlaying, setAudioPlaying] = useState();
+  const [samples, setSamples] = useState(samples_testing);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [currentSample, setCurrentSample] = useState();
 
-  useEffect(() => {
-    setSamples(samples_testing);
-  }, []);
+  /* Barra de búsqueda:  */
+
+  const [displaySamples, setDisplaySamples] = useState(samples_testing);
+  const [busqueda, setBusqueda] = useState("");
+
 
   function addSamples({ audio, title, artist, album, duration }) {
     const newSample = {
@@ -28,8 +31,10 @@ export function MusicContextProvider(props) {
       value={{
         samples,
         addSamples,
-        audioPlaying,
-        setAudioPlaying,
+        isAudioPlaying,
+        setIsAudioPlaying,
+        currentSample,
+        setCurrentSample,
       }}
     >
       {props.children}

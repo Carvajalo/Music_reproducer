@@ -5,22 +5,19 @@ const MusicHeader = () => {
     <>
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-          <th scope="col" className="p-4">
-            <div className="flex items-center">
-              <span className="ml-2"></span>
-            </div>
+          <th className="p-4">
+            <span className="sr-only">Play button</span>
           </th>
-          <th scope="col" className="py-3 px-6">
+          <th className="py-4">
             Title
           </th>
-          <th scope="col" className="py-3 px-6">
+          <th className="py-4">
             Artist
           </th>
-          <th scope="col" className="py-3 px-6">
+          <th className="py-4">
             Album
           </th>
-
-          <th scope="col" className="py-3 px-6">
+          <th className="py-4">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
