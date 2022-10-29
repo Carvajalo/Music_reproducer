@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { MusicContext } from "../../context/MusicContext";
+import { PaginationContext } from "../../context/PaginationContext";
 import { NewSample } from "../Form/NewSample";
 
 export const Header = () => {
+  const { busqueda, setBusqueda, filtrar } = useContext(MusicContext);
+  const { setPage } = useContext(PaginationContext);
   const [displayForm, setDisplayForm] = useState(false);
   function handleDisplayForm() {
     setDisplayForm(true);
   }
+
+  const handleChange = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+    setPage(1);
+  };
+
   return (
     <header>
       <nav className="rounded-t-xl bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
-        <div >
+        <div>
           <div className="flex items-center justify-center">
             <svg
               className="mr-2"
@@ -27,19 +38,41 @@ export const Header = () => {
               MyMusic
             </span>
           </div>
-
-          <div className="flex justify-end ml-96">
-            <button
-              onClick={handleDisplayForm}
-              id="upload_sample"
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-lg px-5 py-1 mr-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Add Sample
-            </button>
+          <div className="flex justify-between py-2 px-4 mt-4">
+            <div className="w-full">
+              <label
+                htmlFor="search"
+                className="text-sm font-medium text-gray-300"
+              >
+                <input
+                  className="border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-8/12 p-2 bg-gray-600 placeholder-gray-400 text-white"
+                  type="search"
+                  name="search"
+                  id="search"
+                  value={busqueda}
+                  onChange={handleChange}
+                  placeholder="Search"
+                />
+              </label>
+            </div>
+            <div>
+              <button
+                onClick={handleDisplayForm}
+                id="upload_sample"
+                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-lg px-5 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                Add Sample
+              </button>
+            </div>
           </div>
         </div>
       </nav>
-      {displayForm && <NewSample displayForm={displayForm} setDisplayForm={setDisplayForm}></NewSample>}
+      {displayForm && (
+        <NewSample
+          displayForm={displayForm}
+          setDisplayForm={setDisplayForm}
+        ></NewSample>
+      )}
     </header>
   );
 };

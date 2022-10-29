@@ -6,12 +6,13 @@ import { PreviusButton } from "./PreviusButton";
 
 export const Pagination = () => {
   const { setPage, page, arrayPages, lastPage } = useContext(PaginationContext);
+  
 
 
   return (
     <section className="flex justify-center mt-8">
       <div className="inline-flex">
-        {page !== 1 && (
+        {page !== 1 && arrayPages.length && (
           <PreviusButton
             page={page}
             name={"Previous"}
@@ -28,7 +29,7 @@ export const Pagination = () => {
             ></PaginationButtons>
           ))}
         </div>
-        {page !== lastPage && (
+        {page !== lastPage && arrayPages.length > 1 && (
           <PreviusButton
             page={page}
             name={"Next"}

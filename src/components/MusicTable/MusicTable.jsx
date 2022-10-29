@@ -5,7 +5,7 @@ import MusicHeader from "./MusicHeader";
 import MusicTemplate from "./MusicTemplate";
 
 const MusicTable = () => {
-  const { samples } = useContext(MusicContext);
+  const { samples, displaySamples } = useContext(MusicContext);
   const {
     pageVisited,
     samplesPerPage,
@@ -15,9 +15,10 @@ const MusicTable = () => {
     setIsChange,
   } = useContext(PaginationContext);
 
-  const new_button = Math.ceil(samples.length / samplesPerPage);
+  const new_button = Math.ceil(displaySamples.length / samplesPerPage);
 
   useEffect(() => {
+    arrayPages.length = 0;
     setIsChange(
       samples.slice(
         samples.length - (samples.length % samplesPerPage),
@@ -30,10 +31,16 @@ const MusicTable = () => {
     if (isChange) {
       return;
     }
-    return setArrayPages([...arrayPages, arrayPages.length + 1]);
-  }, [samples]);
 
-  const setDiplay = samples.slice(pageVisited, pageVisited + samplesPerPage);
+  }, [displaySamples]);
+
+  useEffect(() => {
+    
+  }, [displaySamples])
+
+
+
+  const setDiplay = displaySamples.slice(pageVisited, pageVisited + samplesPerPage);
 
   return (
 

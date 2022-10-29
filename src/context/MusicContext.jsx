@@ -13,7 +13,6 @@ export function MusicContextProvider(props) {
   const [displaySamples, setDisplaySamples] = useState(samples_testing);
   const [busqueda, setBusqueda] = useState("");
 
-
   function addSamples({ audio, title, artist, album, duration }) {
     const newSample = {
       id: samples.length + 1,
@@ -24,6 +23,29 @@ export function MusicContextProvider(props) {
       duration,
     };
     setSamples([...samples, newSample]);
+    setDisplaySamples([...displaySamples, newSample]) 
+  }
+
+  function filtrar(busqueda) {
+    var resultadoBusqueda = samples.filter((sample) => {
+      if (
+        sample.title
+          .toString()
+          .toLocaleLowerCase()
+          .includes(busqueda.toLocaleLowerCase()) ||
+        sample.artist
+          .toString()
+          .toLocaleLowerCase()
+          .includes(busqueda.toLocaleLowerCase()) ||
+        sample.album
+          .toString()
+          .toLocaleLowerCase()
+          .includes(busqueda.toLocaleLowerCase())
+      ) {
+        return sample;
+      }
+    });
+    setDisplaySamples(resultadoBusqueda);
   }
 
   return (
@@ -35,6 +57,11 @@ export function MusicContextProvider(props) {
         setIsAudioPlaying,
         currentSample,
         setCurrentSample,
+        busqueda,
+        setBusqueda,
+        displaySamples,
+        setDisplaySamples,
+        filtrar,
       }}
     >
       {props.children}

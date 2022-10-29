@@ -9,13 +9,15 @@ export function PaginationContextProvider(props) {
   const pageVisited = (page - 1) * samplesPerPage;
   const [isChange, setIsChange] = useState(0);
   const [lastPage, setLastPage] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  /* For search pagination:  */
+  const [displayPages, setDisplayPages] = useState([]);
 
   useEffect(() => {
+    setDisplayPages([arrayPages]);
     return setLastPage(arrayPages.length);
-  }, [arrayPages]);
-
   
+  }, [arrayPages]);
 
   return (
     <PaginationContext.Provider
@@ -29,7 +31,8 @@ export function PaginationContextProvider(props) {
         arrayPages,
         setArrayPages,
         lastPage,
-
+        displayPages,
+        setDisplayPages,
       }}
     >
       {props.children}

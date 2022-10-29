@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { MusicContext } from "../../context/MusicContext";
 import { PaginationContext } from "../../context/PaginationContext";
 
-export const NewSample = ({ displayForm, setDisplayForm }) => {
-  const { addSamples } = useContext(MusicContext);
+export const NewSample = ({ setDisplayForm }) => {
+  const { addSamples, setDisplaySamples } = useContext(MusicContext);
 
   function setSampleInfo(sample) {
     let samp = {};
@@ -130,7 +130,7 @@ export const NewSample = ({ displayForm, setDisplayForm }) => {
                 </label>
                 <label
                   htmlFor="artist"
-                  className="block  text-sm font-medium text-gray-900 text-gray-300"
+                  className="block  text-sm font-medium text-gray-300"
                 >
                   <span>Author:</span>
                   <input
