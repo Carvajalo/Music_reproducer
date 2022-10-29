@@ -61,11 +61,11 @@ export const NewSample = ({ setDisplayForm }) => {
         className="flex justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
       >
         <div className="relative p-8 w-full max-w-md h-full md:h-auto">
-          <div className="relative bg-white rounded-lg shadow bg-gray-700">
+          <div className="relative rounded-lg shadow bg-gray-700">
             <button
               onClick={() => setDisplayForm(false)}
               type="button"
-              className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-800 hover:text-white"
+              className="absolute top-3 right-2.5 text-gray-400 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-800 hover:text-white"
             >
               <svg
                 aria-hidden="true"
@@ -107,8 +107,8 @@ export const NewSample = ({ setDisplayForm }) => {
                       name="sample"
                       accept="audio/*"
                       placeholder="sample"
-                      className="file:w-24 file:h-10 file:rounded-lg file:text-sm file:font-semibold file:hover:bg-blue-600 file:text-gray-300 file:bg-blue-500 hover:file:bg-blue-600 hover:file:text-white file:border-collapse file:focus:ring-blue-500 filefocus:outline-none file:focus:ring-4 file:ring-blue-300 file:border-b file:border-gray-700
-                      font-medium whitespace-nowrap
+                      className="file:h-10 file:rounded-lg  file:font-semibold file:hover:bg-blue-600 file:text-gray-300 file:bg-blue-500 hover:file:bg-blue-600 hover:file:text-white file:border-collapse file:focus:ring-blue-500 filefocus:outline-none file:focus:ring-4 file:ring-blue-300 file:border-b file:border-gray-700
+                      font-medium file:text-xs file:px-2
                       "
                     />
                   </div>

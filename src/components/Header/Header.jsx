@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <header>
-      <nav className="rounded-t-xl 0 border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
+      <nav className="rounded-t-xl  border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
         <div>
           <div className="flex items-center justify-center">
             <svg
@@ -59,7 +59,7 @@ export const Header = () => {
               <button
                 onClick={handleDisplayForm}
                 id="upload_sample"
-                className="bg-white border-bbg-gray-800 daborder-gray-700  hover:bg-gray-600 rounded-lg px-5 py-2 font-medium whitespace-nowrap text-white"
+                className="border-b bg-gray-800 border-gray-700  hover:bg-gray-600 rounded-lg px-5 py-2 font-medium  whitespace-nowrap text-white"
               >
                 Add Sample
               </button>
