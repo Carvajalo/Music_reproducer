@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <header>
-      <nav className="rounded-t-xl  border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
+      <nav className="rounded-t-xl border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900 max-sm:rounded-none">
         <div>
           <div className="flex items-center justify-center">
             <svg
