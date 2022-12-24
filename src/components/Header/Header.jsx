@@ -49,7 +49,6 @@ export const Header = () => {
                   type="search"
                   name="search"
                   id="search"
-                  value={busqueda}
                   onChange={handleChange}
                   placeholder="Search"
                 />

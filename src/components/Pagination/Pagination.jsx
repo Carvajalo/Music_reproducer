@@ -10,7 +10,7 @@ export const Pagination = () => {
 
 
   return (
-    <section className="flex justify-center mt-8">
+    <section className="flex justify-center items-start content-center mt-8">
       <div className="inline-flex">
         {page !== 1 && arrayPages.length && (
           <PreviusButton

@@ -15,6 +15,7 @@ export const PaginationButtons = ({ pageItem, setPage }) => {
     if (page != pageItem) {
       return style + " bg-gray-800 text-gray-500";
     }
+
     style += " bg-blue-600 font-medium text-white";
     if (pageItem == 1) {
       style = style + " rounded-l-lg";
@@ -23,6 +24,7 @@ export const PaginationButtons = ({ pageItem, setPage }) => {
       }
       return style;
     }
+
     if (pageItem == lastPage) {
       return style + " rounded-r-lg";
     }
